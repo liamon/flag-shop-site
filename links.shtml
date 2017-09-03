@@ -1,0 +1,12 @@
+<!--#include virtual="includes/top.html" -->
+			<td id="content">
+				<h2>Useful Links</h2>
+				<ul>
+					<li><a href="http://www.crwflags.com/fotw/flags/" target="_blank">Flags of the World</a></li>
+					<li><a href="https://www.reddit.com/r/Vexillology" target="_blank">Vexillology discussion forum on Reddit</a></li>
+					<li><a href="http://www.flaginstitute.org/wp/" target="_blank">The Flag Institute (UK)</a></li>
+					<li><a href="http://nava.org" target="_blank">North American Vexillogical Association</a></li>
+					<li><a href="http://www.flags.net" target="_blank">World Flag Database</a></li>
+				</ul>
+			</td>
+<!--#include virtual="includes/footer.html" -->

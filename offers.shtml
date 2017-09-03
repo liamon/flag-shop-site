@@ -1,0 +1,50 @@
+<!--#include virtual="includes/top.html" -->
+			<td id="content">
+				<h2>Special Offers</h2>
+				<div id="describe">Mouse over the images and a brief description will appear here!</div>
+				<table border="1" cellpadding="6" id="items">
+					<thead>
+						<tr>
+							<th>Image</th>
+							<th>Item</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<!--
+					The flag images below are from FOTW Flags of the World website at https://flagspot.net/flags/
+					Brazil flag by Joseph McMillan
+					Munster flag by Mario Fabretto and António Martins-Tuválkin
+					Scotlanf flag by António Martins-Tuválkin
+					-->
+					<tbody>
+						<tr>
+							<td align="center"><img src="images/brazil.gif" onmouseover="describe('brazil');" /></td>
+							<td>
+								<h4>Brazil Flag</h4>
+							</td>
+							<td>
+								<p class="price">&euro;3.99</p>
+							</td>
+						</tr>
+						<tr>
+							<td><img src="images/munster.gif" onmouseover="describe('munster');" /></td>
+							<td>
+								<h4>Munster Flag</h4>
+							</td>
+							<td>
+								<p class="price">&euro;4.99</p>
+							</td>
+						</tr>
+						<tr>
+							<td align="center"><img src="images/scotland.gif" onmouseover="describe('scotland');" /></td>
+							<td>
+								<h4>Scotland Flag</h4>
+							</td>
+							<td>
+								<p class="price">&euro;5.49</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+<!--#include virtual="includes/footer.html" -->

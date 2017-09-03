@@ -1,0 +1,12 @@
+<!--#include virtual="includes/top.html" -->
+			<td id="content">
+				<h2>About Us</h2>
+				<p>
+				<img id="globe" src="images/flagglobe.png" width="102" height="100"/>
+				Based in Galway, Ireland, <em>Get Flagged!</em> is the largest online store devoted specifically to buying flags in the entire world.
+				Founded in 2006, we have steadily grown from our small beginnings to the position we are in now. We ship to over 110 territories.
+				Instead of being bought from outside companies, all of our flags are manufactured by us in-house, so quality is guaranteed. We also produce and sell historical and regional flags.
+				</p>
+				<img width="770" height="356" src="images/world.png"/>
+			</td>
+<!--#include virtual="includes/footer.html" -->

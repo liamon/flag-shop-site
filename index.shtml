@@ -1,0 +1,12 @@
+<!--#include virtual="includes/top.html" -->
+			<td id="content">
+				<h2>Site News</h2>
+				<h4>International shipping expands!</h4>
+				<p class="date">19 January 2016</p>
+				<p>Good news to people in South America! Whether you're a vexillologist, flag enthusiast or simply looking to show some national pride, you can now order and receive our flags in Brazil, Argentina, Chile and Uruguay!</p>
+				<h4>Profiled in <em>Absurdly Successful Businessman</em> magazine!</h4>
+				<p class="date">3 January 2016</p>
+				<p>In this month's edition of <em>Absurdly Successful Businessman</em> magazine, we've managed to get ourselves some nice coverage! One of the cover articles in this issue details our rise from our humble start 
+				to our current success. You'll have to pick up the magazine for the full story!</p>
+			</td>
+<!--#include virtual="includes/footer.html" -->

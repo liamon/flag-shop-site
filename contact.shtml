@@ -1,0 +1,58 @@
+<!--#include virtual="includes/top.html" -->
+			<td id="content">
+				<h2>Contact Information</h2>
+				<dl>
+					<dt class="jobtitle">Fulfilment Executive<dt>
+					<dd>
+						<p>John O'Brady</p>
+						<p>091 123 9988</p>
+						<p>jobrady@getflagged.com</p>
+					</dd>
+					<dt class="jobtitle">Marketing Officer<dt>
+					<dd>
+						<p>Aoife Colfer</p>
+						<p>091 777 6542</p>
+						<p>aoife.marketing@getflagged.com</p>
+					</dd>
+					<dt class="jobtitle">Secretary<dt>
+					<dd>
+						<p>Jim Kennedy</p>
+						<p>091 121 6666</p>
+						<p>jim.kennedy@getflagged.com</p>
+					</dd>
+				</dl>
+				<br>
+				<form name="contact" method="post" action="contact.php">
+					<fieldset>
+						<legend>Contact Form</legend>
+						<table>
+							<tr>
+								<td class="formcaption">Category:</td>
+								<td><select name="category">
+									<option value="Sales">Sales</option>
+									<option value="Returns">Returns</option>
+									<option value="Shipping">Shipping</option>
+									<option value="Other">Other (please specify in question)</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td class="formcaption q">Question:</td>
+								<td class="q"><textarea name="question" rows="6" cols="38"></textarea></td>
+							</tr>
+							<tr>
+								<td class="formcaption">Name:</td>
+								<td><input name="name" type="text" size="38"></td>
+							</tr>
+							<tr>
+								<td class="formcaption">Email:</td>
+								<td><input name="email" type="text" size="38"></td>
+							</tr>
+							<tr>
+							<td></td>
+							<td><input type="submit" value="Submit Query" onclick="validate();"></td>
+							</tr>
+						</table>
+					</fieldset>
+				</form>
+			</td>
+<!--#include virtual="includes/footer.html" -->
