@@ -4,71 +4,68 @@ $question = $_POST["question"];
 $name = $_POST["name"];
 $email = $_POST["email"];
 
-$qLength = (strlen($question) < 25);
-$nLength = (strlen($name) < 10);
-$eLength = (strlen($email) < 10);
+$qLengthIsTooSmall = (strlen($question) < 25);
+$nLengthIsTooSmall = (strlen($name) < 10);
+$eLengthIsTooSmall = (strlen($email) < 10);
 
 $noAt = (strpos($email, "@") == -1);
 $noDot = (strpos($email, ".") == -1);
 
-$saleSelected = $returnSelected = $shipSelected = $otherSelected = "";
 # These must all be initialized as empty strings otherwise the options that aren't selected will cause the page to break
+$saleSelected = $returnSelected = $shipSelected = $otherSelected = "";
+$selected = 'selected="selected"';
 
 switch ($category) {
 	case "Sales":
-		$saleSelected = 'selected="selected"';
+		$saleSelected = $selected;
 		break;
 	case "Returns":
-		$returnSelected = 'selected="selected"';
+		$returnSelected = $selected;
 		break;
 	case "Shipping":
-		$shipSelected = 'selected="selected"';
+		$shipSelected = $selected;
 		break;
 	case "Other":
-		$otherSelected = 'selected="selected"';
+		$otherSelected = $selected;
 		break;
 }
 
-$qWrong = $nWrong = $eWrong = ""; # By setting these to empty strings now, I can avoid having to set them as such within each if, thus saving space
+$qWrong = 'Question must have at least 25 characters. ';
+$nWrong = 'Name must have at least 10 characters. ';
+$eWrong = 'Email must have at least 10 characters, an "@" and at least one ".".';
 
-if ($qLength && $nLength && ($eLength || $noAt || $noDot)) {
-	$qWrong = 'Question must have at least 25 characters. ';
-	$nWrong = 'Name must have at least 10 characters. ';
-	$eWrong = 'Email must have at least 10 characters, an "@" and at least one ".".';
-} elseif ($qLength && $nLength) {
-	$qWrong = 'Question must have at least 25 characters. ';
-	$nWrong = 'Name must have at least 10 characters.';
-} elseif ($nLength && ($eLength || $noAt || $noDot)) {
-	$nWrong = 'Name must have at least 10 characters. ';
-	$eWrong = 'Email must have at least 10 characters, an "@" and at least one ".".';
-} elseif ($qLength && ($eLength || $noAt || $noDot)) {
-	$qWrong = 'Question must have at least 25 characters. ';
-	$eWrong = 'Email must have at least 10 characters, an "@" and at least one ".".';
-} elseif ($qLength) {
-	$qWrong = 'Question must have at least 25 characters.';
-} elseif ($nLength) {
-	$nWrong = 'Name must have at least 10 characters.';
-} elseif ($eLength || $noAt || $noDot) {
-	$eWrong = 'Email must have at least 10 characters, an "@" and at least one ".".';
-} else {
-	;
-} # This last else is needed as otherwise it would always act as if there was a mistake in the email and would never send
-
-$errormsg = "<strong>Query sent!</strong>"; # Similar principle here as earlier, now I do not need an else after the if
-if ($qLength || $nLength || $eLength || $noAt || $noDot) {
-	$errormsg = '<strong>Error: </strong>' . $qWrong .  $nWrong .  $eWrong . '</div>';
+if ($qLengthIsTooSmall && $nLengthIsTooSmall && ($eLengthIsTooSmall || $noAt || $noDot)) {
+	$message = $qWrong . $nWrong . $eWrong;
+} elseif ($qLengthIsTooSmall && $nLengthIsTooSmall) {
+	$message = $qWrong . $nWrong;
+} elseif ($nLengthIsTooSmall && ($eLengthIsTooSmall || $noAt || $noDot)) {
+	$message = $nWrong . $eWrong;
+} elseif ($qLengthIsTooSmall && ($eLengthIsTooSmall || $noAt || $noDot)) {
+	$message = $qWrong . $eWrong;
+} elseif ($qLengthIsTooSmall) {
+	$message = $qWrong;
+} elseif ($nLengthIsTooSmall) {
+	$message = $nWrong;
+} elseif ($eLengthIsTooSmall || $noAt || $noDot) {
+	$message = $eWrong;
 }
 
-if ($errormsg == "Query sent!") { # If there was no need to change it, there are no mistakes
+if ($qLengthIsTooSmall || $nLengthIsTooSmall || $eLengthIsTooSmall || $noAt || $noDot) {
+	$message = '<strong>Error: </strong>' . $message . '</div>';
+} else {
+	$message = "<strong>Query sent!</strong>";
+}
+
+if ($message == "<strong>Query sent!</strong>") {
 	mail(
-		"example@example.com", # I've taken out my own email address for GitHub - change this to your email.
+		"example@example.com", # TODO I've taken out my own email address for GitHub - change this to your email.
 		"Customer Query re: $category",
 		"Category: $category\nQuestion: $question\nName: $name\nEmail: $email",
 		"Reply-To: apache@danu3.it.nuigalway.ie\r\nX-Mailer: PHP/" . phpversion()
 	);
 }
 
-include "top.html";
+include "includes/top.html";
 echo '<td id="content">
 				<h2>Contact Information</h2>
 				<dl>
@@ -91,7 +88,7 @@ echo '<td id="content">
 						<p>jim.kennedy@getflagged.com</p>
 					</dd>
 				</dl>' .
-				'<div id="formValidate">' . $errormsg . '</div>';
+				'<div id="formValidate">' . $message . '</div>';
 
 echo "<form name=\"contact\" method=\"post\" action=\"contact.php\">
 		<fieldset>
@@ -129,5 +126,5 @@ echo '						<tr>
 				</form>
 			</td>';
 
-include "footer.html";
+include "includes/footer.html";
 ?>
