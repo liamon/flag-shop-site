@@ -10,3 +10,4 @@ For uploading to GitHub, I also separated out the JavaScript from an inline scri
 __Note__ that this site uses Apache Server Side Includes, as can be seen by the `.shtml` files.
 
 The flag images on `offers.shtml` come from [FOTW Flags of the World](https://flagspot.net/flags/).
+The other images are in the public domain.
